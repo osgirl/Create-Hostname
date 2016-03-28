@@ -1,7 +1,15 @@
+## Created by Steve Gulloni
+## Modify the following lines accordingly to your needs before running:
+
+#Lines: 9, 12, 15, 18, 21, 42 and 43
+
 import-module activedirectory
 
 ## Device Naming Convention
 $naming = "AACLLTOL"
+
+## Hostname Description
+$description = "SRTASKXXX"
 
 ## First Hostname Number to create
 [int]$i = 51 
@@ -25,7 +33,7 @@ while ($i -lt 102) {
     }
     
     ### Create Hostname ##
-    New-AdComputer -name $pcName -SamAccountName $pcName -Path $ou -enable $True -description "Created - SRTASK0353832"
+    New-AdComputer -name $pcName -SamAccountName $pcName -Path $ou -enable $True -description $description
     
     ## To Hostnames, samAccountName should include "$" at the end.
     $pcName += "$"
